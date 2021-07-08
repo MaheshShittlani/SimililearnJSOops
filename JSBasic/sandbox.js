@@ -1,29 +1,24 @@
-function User(name,email) {
-    this.name = name;
-    this.email = email;
+// function init() {
+//     var name = "Alex"; // outer function scope
+    
+//     function displayName() {
+//         console.log(name); // inner function scope
+//     }
+
+//     return displayName;
+// }
+
+// var showName = init();
+
+// showName();
+
+
+function adder(x) {
+    return function(y) {
+        return x + y;
+    };
 }
 
-User.prototype.login = function() {
-    console.log(`${this.name} is logged in`);
-};
+var add5 = adder(5);
 
-User.prototype.logout = function() {
-    console.log(`${this.name} is logged out`);
-};
-
-const userOne = new User('Alex','alex@gmail.com');
-const userTwo = new User('Black','black@gmail.com');
-
-
-// console.log(userOne);
-userOne.login();
-userTwo.login();
-
-userOne.logout();
-userTwo.logout();
-
-
-// new does
-//  1. Create a blank object = userOne = {name:'',email:''}
-//  2. Allocate the space in memory
-//  3. Intialize by calling the constructor function
+console.log(add5(10));
